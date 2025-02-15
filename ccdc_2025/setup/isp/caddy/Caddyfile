@@ -5,21 +5,21 @@
 }
 https://:20501 {
 	bind 0.0.0.0
-	reverse_proxy /* http://localhost:3000
+	reverse_proxy /* http://localhost:1337
 	tls internal {
 		on_demand
 	}
 }
 https://:20502 {
 	bind 0.0.0.0
-	reverse_proxy /* http://localhost:20402
+	reverse_proxy /* http://localhost:3001
 	tls internal {
 		on_demand
 	}
 }
 https://:20503 {
 	bind 0.0.0.0
-	reverse_proxy /* http://localhost:20402
+	reverse_proxy /* http://localhost:20403
 	tls internal {
 		on_demand
 	}
