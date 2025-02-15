@@ -1,0 +1,25 @@
+https://:20501 {
+	reverse_proxy /* http://localhost:3000
+	tls internal {
+		on_demand
+	}
+}
+https://:20502 {
+	reverse_proxy /* http://localhost:20402
+	tls internal {
+		on_demand
+	}
+}
+https://:20503 {
+	reverse_proxy /* http://localhost:20402
+	tls internal {
+		on_demand
+	}
+}
+https://:20504 {
+	root * public
+	file_server browse
+	tls internal {
+		on_demand
+	}
+}
