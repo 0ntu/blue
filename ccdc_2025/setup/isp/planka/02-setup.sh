@@ -3,6 +3,5 @@ cd /tmp
 curl -fsSL -O https://github.com/plankanban/planka/releases/latest/download/planka-prebuild.zip
 unzip planka-prebuild.zip -d /var/www/
 cd /var/www/planka
-rm planka-prebuild.zip
-cd planka
+rm /tmp/planka-prebuild.zip
 npm install
