@@ -3,3 +3,5 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/xcaddy/gpg.key' | sudo gpg --d
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/xcaddy/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-xcaddy.list
 sudo apt update
 sudo apt install xcaddy golang -y
+
+xcaddy build --with github.com/corazawaf/coraza-caddy/v2
