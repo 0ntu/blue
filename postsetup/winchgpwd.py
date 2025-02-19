@@ -7,6 +7,7 @@ import pathlib
 import random
 import subprocess
 import sys
+import typing
 
 def main(argv: list[str]) -> int:
     argparser: argparse.ArgumentParser = argparse.ArgumentParser("Changes passwords for Windows machines")
@@ -17,7 +18,7 @@ def main(argv: list[str]) -> int:
     parsedargs: dict[str, typing.Any] = vars(argparser.parse_args(argv[1:]))
     
     wordlist: list[str] = []
-    with open(str(parsedargs["wordlist.txt"])) as wordlist_file:
+    with open(str(parsedargs["wordlist_file"])) as wordlist_file:
         for wordlist_word in wordlist_file:
             wordlist.append(wordlist_word)
     
@@ -26,7 +27,7 @@ def main(argv: list[str]) -> int:
     print("Setting passwords...")
     with open(str(parsedargs["users_file"])) as users_file:
         for username in users_file:
-            password: str = user + ":" + "1".join(random.choice(wordlist, k=4))
+            password: str = username + ":" + "1".join(random.choices(wordlist, k=4))
             password_change_command = subprocess.run(["net", "user", username, password])
             if password_change_command.returncode == 0:
                 password_lines_to_print.append(username + ":" + password)
