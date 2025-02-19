@@ -14,22 +14,64 @@ teams:
 - name: WhiteTeam
   color: White
   users:
-  - username: whiteteamuser
-    password: testpass
+  - username: whiteteam
+    password: epicpassword123
 - name: RedTeam
   color: Red
   users:
-  - username: redteamuser
-    password: testpass
-- name: ufsitcom
+  - username: redteam
+    password: epicpassword123
+- name: ufsit
   color: Blue
   users:
-  - username: imblue
-    password: jollyshreksophone
+  - username: blue
+    password: shreksopwnd
   services:
   - name: QuasarLoud-ICMP
     check_name: ICMPCheck
     host: 10.13.37.4
+    port: 0
+    points: 25
+    environments:
+    - matching_content: 1 packets transmitted, 1 received
+  - name: ThirdImpact-ICMP
+    check_name: ICMPCheck
+    host: 10.13.37.6
+    port: 0
+    points: 25
+    environments:
+    - matching_content: 1 packets transmitted, 1 received
+  - name: Tokyo3-ICMP
+    check_name: ICMPCheck
+    host: 10.13.37.9
+    port: 0
+    points: 25
+    environments:
+    - matching_content: 1 packets transmitted, 1 received
+  - name: BlackMoon-ICMP
+    check_name: ICMPCheck
+    host: 10.13.37.10
+    port: 0
+    points: 25
+    environments:
+    - matching_content: 1 packets transmitted, 1 received
+  - name: Lilith-ICMP
+    check_name: ICMPCheck
+    host: 10.13.37.61
+    port: 0
+    points: 25
+    environments:
+    - matching_content: 1 packets transmitted, 1 received
+  - name: Rebirth-ICMP
+    check_name: ICMPCheck
+    host: 10.13.37.123
+    port: 0
+    points: 25
+    environments:
+    - matching_content: 1 packets transmitted, 1 received
+  - name: Vegetable-ICMP
+    check_name: ICMPCheck
+    host: 10.13.37.222
     port: 0
     points: 25
     environments:
@@ -40,7 +82,58 @@ teams:
     port: 22
     points: 150
     accounts:
-    - username: elgatoconbotas
+    - username: melissa.chen
+      password: Congratulations21
+    environments:
+    - matching_content: "^SUCCESS"
+      properties:
+      - name: commands
+        value: id;ls -l /home
+    - matching_content: PID
+      properties:
+      - name: commands
+        value: ps
+  - name: BlackMoon-SSH
+    check_name: SSHCheck
+    host: 10.13.37.10
+    port: 22
+    points: 150
+    accounts:
+    - username: maxwell.starling
+      password: Congratulations21
+    environments:
+    - matching_content: "^SUCCESS"
+      properties:
+      - name: commands
+        value: id;ls -l /home
+    - matching_content: PID
+      properties:
+      - name: commands
+        value: ps
+  - name: Lilith-SSH
+    check_name: SSHCheck
+    host: 10.13.37.61
+    port: 22
+    points: 150
+    accounts:
+    - username: alan.chen
+      password: Congratulations21
+    environments:
+    - matching_content: "^SUCCESS"
+      properties:
+      - name: commands
+        value: id;ls -l /home
+    - matching_content: PID
+      properties:
+      - name: commands
+        value: ps
+  - name: Vegetable-SSH
+    check_name: SSHCheck
+    host: 10.13.37.222
+    port: 22
+    points: 150
+    accounts:
+    - username: john.taylor
       password: Congratulations21
     environments:
     - matching_content: "^SUCCESS"
@@ -57,7 +150,7 @@ teams:
     port: 80
     points: 100
     environments:
-    - matching_content: This is the default welcome page used to test
+    - matching_content: ABC123
       properties:
       - name: useragent
         value: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
@@ -65,13 +158,13 @@ teams:
         value: testbed_web
       - name: uri
         value: "/"
-  - name: QuasarLoud-MySQL
+  - name: Vegetable-MySQL
     check_name: MYSQLCheck
-    host: 10.13.37.4
+    host: 10.13.37.222
     port: 3306
     points: 100
     accounts:
-    - username: elgatoconbotas
+    - username: anna.wilson # You may have to create this user locally OR find a way to use LDAP/AD auth with MySQL
       password: Congratulations21
     environments:
     - matching_content: USER_PRIVILEGES
@@ -80,13 +173,13 @@ teams:
         value: information_schema
       - name: command
         value: show tables;
-  - name: QuasarLoud-FTP
+  - name: Lilith-FTP
     check_name: FTPCheck
-    host: 10.13.37.4
+    host: 10.13.37.61
     port: 21
     points: 150
     accounts:
-    - username: elgatoconbotas
+    - username: matthew.taylor # You may have to create this user locally OR find a way to use LDAP/AD auth for FTP
       password: Congratulations21
     environments:
     - matching_content: "^SUCCESS"
@@ -94,14 +187,14 @@ teams:
       - name: remotefilepath
         value: "/ftp_files/testfile.txt"
       - name: filecontents
-        value: Sample file contents
+        value: ABC123
   - name: ThirdImpact-SMB
     check_name: SMBCheck
     host: 10.13.37.6
     port: 445
     points: 100
     accounts:
-    - username: shinji.ikari
+    - username: jeremy.rover
       password: Congratulations21
     environments:
     - matching_content: "^SUCCESS"
@@ -127,25 +220,13 @@ teams:
         value: A
       - name: domain
         value: nerv.ccdc
-    - matching_content: 'status: NOERROR'
-      properties:
-      - name: qtype
-        value: AAAA
-      - name: domain
-        value: www.team.scoringengine
-    - matching_content: 'status: NOERROR'
-      properties:
-      - name: qtype
-        value: A
-      - name: domain
-        value: anotherhost.team.scoringengine
   - name: Lilith-PostgreSQL
     check_name: POSTGRESQLCheck
     host: 10.13.37.61
     port: 5432
     points: 100
     accounts:
-    - username: elgatoconbotas
+    - username: william.wilson # You may have to create this user locally OR find a way to use LDAP/AD auth for PostreSQL
       password: Congratulations21
     environments:
     - matching_content: You are connected to database
@@ -167,7 +248,7 @@ teams:
     port: 0
     points: 100
     accounts:
-    - username: shinji.ikari
+    - username: jack.harris
       password: Congratulations21
     environments:
     - matching_content: "^SUCCESS"
