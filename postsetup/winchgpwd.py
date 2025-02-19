@@ -27,6 +27,7 @@ def main(argv: list[str]) -> int:
     print("Setting passwords...")
     with open(str(parsedargs["users_file"])) as users_file:
         for username in users_file:
+            username = username.strip()
             password: str = username + ":" + "1".join(random.choices(wordlist, k=4))
             password_change_command = subprocess.run(["net", "user", username, password])
             if password_change_command.returncode == 0:
