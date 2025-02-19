@@ -20,7 +20,7 @@ def main(argv: list[str]) -> int:
     wordlist: list[str] = []
     with open(str(parsedargs["wordlist_file"])) as wordlist_file:
         for wordlist_word in wordlist_file:
-            wordlist.append(wordlist_word)
+            wordlist.append(wordlist_word.strip())
     
     password_lines_to_print: list[str] = []
     failed_usernames: list[str] = []
