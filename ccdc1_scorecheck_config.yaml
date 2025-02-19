@@ -144,7 +144,7 @@ teams:
       properties:
       - name: commands
         value: ps
-  - name: QuasarLoud-HTTP
+  - name: QuasarLoud-HTTP # not configured by default
     check_name: HTTPCheck
     host: 10.13.37.4
     port: 80
@@ -158,7 +158,7 @@ teams:
         value: testbed_web
       - name: uri
         value: "/"
-  - name: Vegetable-MySQL
+  - name: Vegetable-MySQL # not configured by default
     check_name: MYSQLCheck
     host: 10.13.37.222
     port: 3306
@@ -173,7 +173,7 @@ teams:
         value: information_schema
       - name: command
         value: show tables;
-  - name: Lilith-FTP
+  - name: Lilith-FTP # not configured by default
     check_name: FTPCheck
     host: 10.13.37.61
     port: 21
@@ -188,7 +188,7 @@ teams:
         value: "/ftp_files/testfile.txt"
       - name: filecontents
         value: ABC123
-  - name: ThirdImpact-SMB
+  - name: ThirdImpact-SMB # not configured by default
     check_name: SMBCheck
     host: 10.13.37.6
     port: 445
@@ -208,7 +208,7 @@ teams:
       # SHA256 hash of file
       - name: hash
         value: 3ac8347c1130bd1ffe9078f99be6cb690baedd9e5552de0f7140c0daded7e1fa
-  - name: ThirdImpact-DNS
+  - name: ThirdImpact-DNS # may be configured by default
     check_name: DNSCheck
     host: 10.13.37.6
     port: 53
@@ -220,7 +220,7 @@ teams:
         value: A
       - name: domain
         value: nerv.ccdc
-  - name: Lilith-PostgreSQL
+  - name: Lilith-PostgreSQL # not configured 
     check_name: POSTGRESQLCheck
     host: 10.13.37.61
     port: 5432
@@ -274,7 +274,7 @@ teams:
     port: 3390
     points: 100
     accounts:
-    - username: shinji.ikari
+    - username: jeremy.rover
       password: Congratulations21
     environments:
     - matching_content: SUCCESS$
@@ -284,7 +284,16 @@ teams:
     port: 3390
     points: 100
     accounts:
-    - username: shinji.ikari
+    - username: william.wilson
+      password: Congratulations21
+    environments:
+  - name: Rebirth-RDP
+    check_name: RDPCheck
+    host: 10.13.37.123
+    port: 3390
+    points: 100
+    accounts:
+    - username: alan.chen
       password: Congratulations21
     environments:
     - matching_content: SUCCESS$
@@ -294,7 +303,7 @@ teams:
     port: 389
     points: 50
     accounts:
-    - username: shinji.ikari
+    - username: maxwell.starling
       password: Congratulations21
     environments:
     - matching_content: "^result: 0 Success"
